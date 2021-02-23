@@ -1,4 +1,4 @@
-﻿namespace Infrastucture.DataAccess
+﻿namespace Infrastructure.DataAccess
 {
     public enum EntityState
     {

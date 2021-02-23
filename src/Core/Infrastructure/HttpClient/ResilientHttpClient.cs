@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Infrastucture.HttpClient
+namespace Infrastructure.HttpClient
 {
     public class ResilientHttpClient : IResilientHttpClient
     {

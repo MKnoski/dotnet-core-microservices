@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastucture.DataAccess
+namespace Infrastructure.DataAccess
 {
     public interface IUnitOfWork : IDisposable
     {

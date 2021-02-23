@@ -1,11 +1,11 @@
-﻿using Infrastucture.Controllers;
-using Infrastucture.Logging;
+﻿using Infrastructure.Controllers;
+using Infrastructure.Logging;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace Infrastucture.Filters
+namespace Infrastructure.Filters
 {
     public class LoggingActionFilter : ActionFilterAttribute
     {
