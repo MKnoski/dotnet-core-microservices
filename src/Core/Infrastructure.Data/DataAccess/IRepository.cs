@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Infrastructure.DataAccess
+namespace Infrastructure.Data.DataAccess
 {
     public interface IRepository<T> where T : BaseEntity
     {

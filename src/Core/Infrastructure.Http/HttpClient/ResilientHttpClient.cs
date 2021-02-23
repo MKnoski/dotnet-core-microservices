@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Infrastructure.HttpClient;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Polly;
 using System;
@@ -8,7 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Infrastructure.HttpClient
+namespace Infrastructure.Http.HttpClient
 {
     public class ResilientHttpClient : IResilientHttpClient
     {
