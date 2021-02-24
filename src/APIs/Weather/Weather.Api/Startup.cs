@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Weather.Api.Configuration;
 
 namespace Weather.Api
 {
@@ -22,6 +23,8 @@ namespace Weather.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
+            services.Configure<Secrets>(Configuration.GetSection("Secrets"));
             
             services.AddHttpContextAccessor();
             services.AddHttpClient<IResilientHttpClient, ResilientHttpClient>();
