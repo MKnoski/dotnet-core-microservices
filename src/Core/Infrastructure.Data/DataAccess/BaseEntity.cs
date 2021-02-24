@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infrastructure.Data.DataAccess
 {
-    public abstract partial class BaseEntity
+    public abstract class BaseEntity
     {
         public BaseEntity()
         {
-            this.CreatedOn = DateTime.Now;
-            this.UpdatedOn = DateTime.Now;
-            this.State = (int)EntityState.New;
+            CreatedOn = DateTime.Now;
+            UpdatedOn = DateTime.Now;
+            State = (int)EntityState.New;
         }
 
         public string CreatedBy { get; set; }

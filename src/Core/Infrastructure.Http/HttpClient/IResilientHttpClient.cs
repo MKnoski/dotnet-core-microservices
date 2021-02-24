@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Infrastructure.HttpClient
+namespace Infrastructure.Http.HttpClient
 {
     public interface IResilientHttpClient
     {

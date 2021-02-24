@@ -1,11 +1,11 @@
-﻿using Infrastructure.Controllers;
-using Infrastructure.Logging;
+﻿using System;
+using Infrastructure.Http.Controllers;
+using Infrastructure.Http.Logging;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
-using System;
 
-namespace Infrastructure.Filters
+namespace Infrastructure.Http.Filters
 {
     public class LoggingActionFilter : ActionFilterAttribute
     {
@@ -33,7 +33,7 @@ namespace Infrastructure.Filters
         {
             var controllerName = routeData.Values["controller"];
             var actionName = routeData.Values["action"];
-            var message = String.Format("{0} controller:{1} action:{2}", methodName, controllerName, actionName);
+            var message = $"{methodName} controller:{controllerName} action:{actionName}";
             BaseController baseController = ((BaseController)controller);
             baseController.Logger.LogInformation(LoggingEvents.ACCESS_METHOD, message);
         }

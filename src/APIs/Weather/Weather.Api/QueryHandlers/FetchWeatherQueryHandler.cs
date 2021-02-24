@@ -1,9 +1,9 @@
-﻿using Infrastructure.HttpClient;
-using MediatR;
+﻿using MediatR;
 using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Infrastructure.Http.HttpClient;
 using Weather.Api.Queries;
 using Weather.Domain.Models;
 
@@ -13,7 +13,7 @@ namespace Weather.Api.QueryHandlers
     {
         private const string ApiUrl = "http://api.openweathermap.org/data/2.5/weather?appid=25b4d3146e296514799c8743105a1324&units=meters&q=";
 
-        private IResilientHttpClient _httpClient;
+        private readonly IResilientHttpClient _httpClient;
 
         public FetchWeatherQueryHandler(IResilientHttpClient httpClient)
         {

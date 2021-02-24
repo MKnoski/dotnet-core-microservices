@@ -13,12 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Core.Sdk\Core.Sdk.csproj" />
     <ProjectReference Include="..\..\..\Core\Infrastructure.Http\Infrastructure.Http.csproj" />
     <ProjectReference Include="..\Weather.Domain\Weather.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Commands\" />
   </ItemGroup>
 
 

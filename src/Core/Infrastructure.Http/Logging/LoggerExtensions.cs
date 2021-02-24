@@ -10,7 +10,7 @@ namespace Infrastructure.Http.Logging
         {
             var errorString = new StringBuilder();
             errorString.AppendLine("An error occured. ");
-            Exception inner = ex;
+            var inner = ex;
             while (inner != null)
             {
                 errorString.Append("Error Message:");

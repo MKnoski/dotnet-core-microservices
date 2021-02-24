@@ -9,6 +9,7 @@ namespace Weather.Domain.Models
         public Guid Id { get; set; }
 
         public string Location { get; set; }
+        
 
         public string EmailAddress { get; set; }
     }

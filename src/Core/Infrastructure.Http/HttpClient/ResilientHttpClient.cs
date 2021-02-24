@@ -1,5 +1,4 @@
-﻿using Infrastructure.HttpClient;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Polly;
 using System;
@@ -16,8 +15,8 @@ namespace Infrastructure.Http.HttpClient
         private static AsyncPolicy _circuitBreakerPolicy;
         private static AsyncPolicy _retryPolicy;
 
-        private System.Net.Http.HttpClient _client;
-        private IHttpContextAccessor _httpContextAccessor;
+        private readonly System.Net.Http.HttpClient _client;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public ResilientHttpClient(IHttpContextAccessor httpContextAccessor, System.Net.Http.HttpClient httpClient)
         {
@@ -29,7 +28,7 @@ namespace Infrastructure.Http.HttpClient
             _circuitBreakerPolicy = Policy.Handle<AggregateException>(x =>
             {
                 var result = x.InnerException is HttpRequestException;
-                System.Console.WriteLine("Circuit opened...");
+                Console.WriteLine("Circuit opened...");
                 return result;
             })
             .CircuitBreakerAsync(exceptionsAllowedBeforeBreaking: 2, durationOfBreak: TimeSpan.FromSeconds(10));
@@ -38,12 +37,12 @@ namespace Infrastructure.Http.HttpClient
             {
                 var result = x.InnerException is HttpRequestException;
                 return result;
-            }).RetryForeverAsync(ex => System.Console.WriteLine("Retrying..."));
+            }).RetryForeverAsync(ex => Console.WriteLine("Retrying..."));
         }
 
         public Task<HttpResponseMessage> GetAsync(string uri, string authToken = null)
         {
-            return ExecuteWithRetryandCircuitBreakerAsync(uri, authToken, async () =>
+            return ExecuteWithRetryAndCircuitBreakerAsync(uri, authToken, async () =>
             {
                 var requestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
 
@@ -67,7 +66,7 @@ namespace Infrastructure.Http.HttpClient
 
         public Task<HttpResponseMessage> PostAsync<T>(string uri, T item, string authToken = null)
         {
-            return ExecuteWithRetryandCircuitBreakerAsync(uri, authToken, async () =>
+            return ExecuteWithRetryAndCircuitBreakerAsync(uri, authToken, async () =>
             {
                 var requestMessage = new HttpRequestMessage(HttpMethod.Post, uri);
 
@@ -93,7 +92,7 @@ namespace Infrastructure.Http.HttpClient
 
         public Task<HttpResponseMessage> PutAsync<T>(string uri, T item, string authToken = null)
         {
-            return ExecuteWithRetryandCircuitBreakerAsync(uri, authToken, async () =>
+            return ExecuteWithRetryAndCircuitBreakerAsync(uri, authToken, async () =>
             {
                 var requestMessage = new HttpRequestMessage(HttpMethod.Put, uri);
 
@@ -119,7 +118,7 @@ namespace Infrastructure.Http.HttpClient
 
         public Task<HttpResponseMessage> DeleteAsync(string uri, string authToken = null)
         {
-            return ExecuteWithRetryandCircuitBreakerAsync(uri, authToken, async () =>
+            return ExecuteWithRetryAndCircuitBreakerAsync(uri, authToken, async () =>
             {
                 var requestMessage = new HttpRequestMessage(HttpMethod.Delete, uri);
 
@@ -141,9 +140,9 @@ namespace Infrastructure.Http.HttpClient
             });
         }
 
-        private async Task<HttpResponseMessage> ExecuteWithRetryandCircuitBreakerAsync(string uri, string authToken, Func<Task<HttpResponseMessage>> func)
+        private async Task<HttpResponseMessage> ExecuteWithRetryAndCircuitBreakerAsync(string uri, string authToken, Func<Task<HttpResponseMessage>> func)
         {
-            var res = await _retryPolicy.WrapAsync(_circuitBreakerPolicy).ExecuteAsync(() => func());
+            var res = await _retryPolicy.WrapAsync(_circuitBreakerPolicy).ExecuteAsync(func);
             return res;
         }
 

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Infrastructure.Controllers;
+using Infrastructure.Http.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Weather.Api.Notifications;
 using Weather.Api.Queries;
 using Weather.Domain.Models;
 
@@ -25,20 +26,22 @@ namespace Weather.Api.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> InitWeatherDelivery(WeatherDelivery delivery)
+        //[Authorize]
+        public async Task<IActionResult> InitWeatherDelivery(WeatherDelivery weatherDelivery)
         {
-            delivery.Id = Guid.NewGuid();
+            weatherDelivery.Id = Guid.NewGuid();
 
-            Logger.LogInformation($"Weather delivery init - id: {delivery.Id}");
+            Logger.LogInformation($"Weather delivery init - id: {weatherDelivery.Id}");
 
-            var query = new FetchWeatherQuery(delivery);
-            var weatherReponse = await _mediator.Send(query);
+            var query = new FetchWeatherQuery(weatherDelivery);
+            var weatherResponse = await _mediator.Send(query);
 
-            if (weatherReponse == null)
+            if (weatherResponse == null)
             {
                 return NotFound();
             }
+            
+            await _mediator.Publish(new FetchWeatherNotification(weatherDelivery, weatherResponse));
 
             return Ok();
         }

@@ -1,29 +1,29 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 
-namespace Infrastructure.Controllers
+namespace Infrastructure.Http.Controllers
 {
     public class BaseController : ControllerBase
     {
-        private ILogger _logger;
-
         public BaseController(ILogger<BaseController> logger)
         {
-            _logger = logger;
+            Logger = logger;
         }
 
-        public ILogger Logger { get { return _logger; } }
+        public ILogger Logger { get; }
 
         [NonAction]
         public HttpResponseMessage LogException(Exception ex)
         {
-            HttpResponseMessage message = new HttpResponseMessage();
-            message.Content = new StringContent(ex.Message);
-            message.StatusCode = System.Net.HttpStatusCode.ExpectationFailed;
+            var message = new HttpResponseMessage
+            {
+                Content = new StringContent(ex.Message), 
+                StatusCode = HttpStatusCode.ExpectationFailed
+            };
+            
             return message;
         }
     }
