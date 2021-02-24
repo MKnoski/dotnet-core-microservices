@@ -18,10 +18,10 @@ namespace Infrastructure.Http.HttpClient
         private readonly System.Net.Http.HttpClient _client;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ResilientHttpClient(IHttpContextAccessor httpContextAccessor, System.Net.Http.HttpClient httpClient)
+        public ResilientHttpClient(System.Net.Http.HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor;
             _client = httpClient;
+            _httpContextAccessor = httpContextAccessor;
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

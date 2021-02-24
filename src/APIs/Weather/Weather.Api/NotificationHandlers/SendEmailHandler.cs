@@ -11,7 +11,7 @@ namespace Weather.Api.NotificationHandlers
 {
     public class SendEmailHandler : INotificationHandler<FetchWeatherNotification>
     {
-        private const string EmailApiUrl = "localhost";
+        private const string EmailApiUrl = "http://localhost:5004/Email";
         
         private readonly IResilientHttpClient _resilientHttpClient;
 
@@ -39,8 +39,8 @@ namespace Weather.Api.NotificationHandlers
                               $"<strong>Temp min: {weather.main.temp_max.ToInt()}°C</strong>" + "<br><br>" +
                               $"<strong>Temp min: {weather.main.temp_max.ToInt()}°C</strong>",
             };
-            
-            await _resilientHttpClient.PostAsync(EmailApiUrl, sendEmailModel);
+
+            var response = await _resilientHttpClient.PostAsync(EmailApiUrl, sendEmailModel);
         }
     }
 }
