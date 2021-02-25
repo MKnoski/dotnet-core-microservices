@@ -1,1 +1,1 @@
-# DotnetCoreMicroservices-Template
+# DotnetCoreMicroservices
