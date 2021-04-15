@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email.Domain", "src\APIs\Em
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email.App", "src\APIs\Email\Email.App\Email.App.csproj", "{802EB2D5-AD9F-44F8-B399-59538385EDFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.App", "src\APIs\Weather\Weather.App\Weather.App.csproj", "{0C45395E-1A32-4D64-80C6-947A59DAE1EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{802EB2D5-AD9F-44F8-B399-59538385EDFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{802EB2D5-AD9F-44F8-B399-59538385EDFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{802EB2D5-AD9F-44F8-B399-59538385EDFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C45395E-1A32-4D64-80C6-947A59DAE1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C45395E-1A32-4D64-80C6-947A59DAE1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C45395E-1A32-4D64-80C6-947A59DAE1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C45395E-1A32-4D64-80C6-947A59DAE1EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{823CEF9E-63E4-4CD1-BB35-CD838711A774} = {AA2965DB-6601-4539-831E-AB571B92D1C7}
 		{028D0177-B38A-4945-8B96-0F723B31DB1E} = {5D856BD1-EF69-44F2-B234-C33BE13C9CA0}
 		{802EB2D5-AD9F-44F8-B399-59538385EDFE} = {5D856BD1-EF69-44F2-B234-C33BE13C9CA0}
+		{0C45395E-1A32-4D64-80C6-947A59DAE1EC} = {6B0BCFFA-255D-4EF7-A2F9-216EF5061C76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E332E16C-B3F6-4883-9A62-2D8DC81CF280}

@@ -1,12 +1,12 @@
 using Infrastructure.HttpClient;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Weather.Api.Configuration;
+using Weather.App;
+using Weather.App.Configuration;
 
 namespace Weather.Api
 {
@@ -28,8 +28,8 @@ namespace Weather.Api
             
             services.AddHttpContextAccessor();
             services.AddHttpClient<IResilientHttpClient, ResilientHttpClient>();
-            
-            services.AddMediatR(typeof(Startup));
+
+            services.AddApplication();
             
             services.AddSwaggerGen(c =>
             {

@@ -3,15 +3,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure.HttpClient;
 using MediatR;
-using Weather.Api.Notifications;
+using Weather.App.Notifications;
 using Common;
 using Weather.Domain.Models;
 
-namespace Weather.Api.NotificationHandlers
+namespace Weather.App.NotificationHandlers
 {
     public class SendEmailHandler : INotificationHandler<FetchWeatherNotification>
     {
-        private const string EmailApiUrl = "http://localhost:5004/Email";
+        //private const string EmailApiUrl = "http://localhost:5004/Email";
+        private const string EmailApiUrl = "https://localhost:44344/Email";
         
         private readonly IResilientHttpClient _resilientHttpClient;
 
@@ -23,8 +24,8 @@ namespace Weather.Api.NotificationHandlers
         public async Task Handle(FetchWeatherNotification notification, CancellationToken cancellationToken)
         {
             var weather = notification.WeatherApiResponse;
-            var location = notification.WeatherDelivery.Location;
-            var email = notification.WeatherDelivery.EmailAddress;
+            var location = notification.FetchWeatherQuery.Location;
+            var email = notification.FetchWeatherQuery.EmailAddress;
             
             var sendEmailModel = new SendEmailModel
             {

@@ -1,4 +1,4 @@
-namespace Weather.Api.Configuration
+namespace Weather.App.Configuration
 {
     public class Secrets
     {

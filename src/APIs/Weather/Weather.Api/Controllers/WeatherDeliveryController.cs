@@ -4,9 +4,8 @@ using Infrastructure.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Weather.Api.Notifications;
-using Weather.Api.Queries;
-using Weather.Domain.Models;
+using Weather.App.Notifications;
+using Weather.App.Queries;
 
 namespace Weather.Api.Controllers
 {
@@ -24,21 +23,18 @@ namespace Weather.Api.Controllers
 
         [HttpPost]
         //[Authorize]
-        public async Task<IActionResult> InitWeatherDelivery(WeatherDelivery weatherDelivery)
+        public async Task<IActionResult> InitWeatherDelivery(FetchWeatherQuery request)
         {
-            weatherDelivery.Id = Guid.NewGuid();
+            request.Id = Guid.NewGuid();
 
-            Logger.LogInformation($"Weather delivery init - id: {weatherDelivery.Id}");
+            Logger.LogInformation($"Weather delivery init - id: {request.Id}");
 
-            var query = new FetchWeatherQuery(weatherDelivery);
-            var weatherResponse = await _mediator.Send(query);
+            var weatherResponse = await _mediator.Send(request);
 
             if (weatherResponse == null)
             {
                 return NotFound();
             }
-            
-            await _mediator.Publish(new FetchWeatherNotification(weatherDelivery, weatherResponse));
 
             return Ok();
         }

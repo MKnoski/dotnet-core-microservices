@@ -10,7 +10,6 @@ namespace Weather.Domain.Models
 
         public string Location { get; set; }
         
-
         public string EmailAddress { get; set; }
     }
 }
