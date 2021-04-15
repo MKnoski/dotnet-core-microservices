@@ -1,11 +1,11 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Core.Sdk;
-using Infrastructure.Http.HttpClient;
-using Infrastructure.Http.HttpModels;
+using Infrastructure.HttpClient;
+using Infrastructure.HttpModels;
 using MediatR;
 using Weather.Api.Notifications;
+using Common;
 
 namespace Weather.Api.NotificationHandlers
 {

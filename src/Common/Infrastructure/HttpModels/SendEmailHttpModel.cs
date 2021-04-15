@@ -1,4 +1,4 @@
-namespace Infrastructure.Http.HttpModels
+namespace Infrastructure.HttpModels
 {
     public class SendEmailHttpModel
     {

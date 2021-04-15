@@ -1,4 +1,4 @@
-﻿namespace Core.Sdk
+﻿namespace Common
 {
     public static class Extensions
     {

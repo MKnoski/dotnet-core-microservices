@@ -2,11 +2,11 @@
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Infrastructure.Http.HttpClient;
 using Microsoft.Extensions.Options;
 using Weather.Api.Configuration;
 using Weather.Api.Queries;
 using Weather.Domain.Models;
+using Infrastructure.HttpClient;
 
 namespace Weather.Api.QueryHandlers
 {

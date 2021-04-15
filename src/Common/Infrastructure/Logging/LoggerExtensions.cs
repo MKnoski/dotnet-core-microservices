@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Infrastructure.Http.Logging
+namespace Infrastructure.Logging
 {
     public static class LoggerExtensions
     {

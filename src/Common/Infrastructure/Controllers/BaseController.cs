@@ -4,7 +4,7 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Infrastructure.Http.Controllers
+namespace Infrastructure.Controllers
 {
     public class BaseController : ControllerBase
     {
@@ -20,10 +20,10 @@ namespace Infrastructure.Http.Controllers
         {
             var message = new HttpResponseMessage
             {
-                Content = new StringContent(ex.Message), 
+                Content = new StringContent(ex.Message),
                 StatusCode = HttpStatusCode.ExpectationFailed
             };
-            
+
             return message;
         }
     }

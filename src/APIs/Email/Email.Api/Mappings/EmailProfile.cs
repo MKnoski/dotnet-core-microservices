@@ -1,6 +1,6 @@
 using AutoMapper;
 using Email.Domain.Models;
-using Infrastructure.Http.HttpModels;
+using Infrastructure.HttpModels;
 
 namespace Email.Api.Mappings
 {

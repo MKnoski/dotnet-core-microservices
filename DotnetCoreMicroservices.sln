@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89B27191-BDBA-45B4-8068-F7960D2BF639}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AA2965DB-6601-4539-831E-AB571B92D1C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{AA2965DB-6601-4539-831E-AB571B92D1C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIs", "APIs", "{F5B42493-4BA3-4604-A4E2-B6E90115367C}"
 EndProject
@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Weather", "Weather", "{6B0B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{5D856BD1-EF69-44F2-B234-C33BE13C9CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Data", "src\Core\Infrastructure.Data\Infrastructure.Data.csproj", "{94FEDE62-9073-44A9-8D5C-D9E78FF096E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\Common\Persistence\Persistence.csproj", "{94FEDE62-9073-44A9-8D5C-D9E78FF096E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Http", "src\Core\Infrastructure.Http\Infrastructure.Http.csproj", "{199E5DBB-3950-4EDE-92BC-C73C721198B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Common\Infrastructure\Infrastructure.csproj", "{199E5DBB-3950-4EDE-92BC-C73C721198B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weather.Api", "src\APIs\Weather\Weather.Api\Weather.Api.csproj", "{6B0E29CE-4797-436C-9580-0A259047C5D2}"
 EndProject
@@ -27,9 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email.Api", "src\APIs\Email
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weather.Domain", "src\APIs\Weather\Weather.Domain\Weather.Domain.csproj", "{AB6BF2AE-6B50-4B17-AA50-5D73CB9A8A4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Sdk", "src\Core\Core.Sdk\Core.Sdk.csproj", "{823CEF9E-63E4-4CD1-BB35-CD838711A774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "src\Common\Common\Common.csproj", "{823CEF9E-63E4-4CD1-BB35-CD838711A774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Domain", "src\APIs\Email\Email.Domain\Email.Domain.csproj", "{028D0177-B38A-4945-8B96-0F723B31DB1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email.Domain", "src\APIs\Email\Email.Domain\Email.Domain.csproj", "{028D0177-B38A-4945-8B96-0F723B31DB1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

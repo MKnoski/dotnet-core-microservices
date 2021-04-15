@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Http.Logging
+﻿namespace Infrastructure.Logging
 {
     public class LoggingEvents
     {

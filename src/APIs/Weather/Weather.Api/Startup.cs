@@ -1,4 +1,4 @@
-using Infrastructure.Http.HttpClient;
+using Infrastructure.HttpClient;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

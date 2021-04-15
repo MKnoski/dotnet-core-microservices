@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Infrastructure.Data.DataAccess
+namespace Persistence.DataAccess
 {
     public abstract class BaseEntity
     {
