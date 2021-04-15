@@ -2,10 +2,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure.HttpClient;
-using Infrastructure.HttpModels;
 using MediatR;
 using Weather.Api.Notifications;
 using Common;
+using Weather.Domain.Models;
 
 namespace Weather.Api.NotificationHandlers
 {
@@ -26,7 +26,7 @@ namespace Weather.Api.NotificationHandlers
             var location = notification.WeatherDelivery.Location;
             var email = notification.WeatherDelivery.EmailAddress;
             
-            var sendEmailModel = new SendEmailHttpModel
+            var sendEmailModel = new SendEmailModel
             {
                 FromEmail = "maks.knoski@gmail.com",
                 FromName = "Maks",

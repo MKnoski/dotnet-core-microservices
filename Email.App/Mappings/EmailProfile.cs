@@ -1,6 +1,6 @@
 using AutoMapper;
+using Email.Api.Commands;
 using Email.Domain.Models;
-using Infrastructure.HttpModels;
 
 namespace Email.Api.Mappings
 {
@@ -8,7 +8,7 @@ namespace Email.Api.Mappings
     {
         public EmailProfile()
         {
-            CreateMap<SendEmailHttpModel, SendEmailModel>()
+            CreateMap<SendEmailCommand, SendEmailModel>()
                 .ForPath(dest => dest.From.Email, opt => opt.MapFrom(src => src.FromEmail))
                 .ForPath(dest => dest.From.Name, opt => opt.MapFrom(src => src.FromName))
                 .ReverseMap();

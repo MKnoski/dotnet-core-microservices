@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Email.Api.Mappings;
+using Email.App;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,8 +31,8 @@ namespace Email.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
-            services.AddMediatR(typeof(Startup));
+
+            services.AddApplication();
             
             services.AddSwaggerGen(c =>
             {
@@ -39,13 +40,13 @@ namespace Email.Api
             });
             
             // Auto Mapper Configurations
-            var mapperConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new EmailProfile());
-            });
+            //var mapperConfig = new MapperConfiguration(mc =>
+            //{
+            //    mc.AddProfile(new EmailProfile());
+            //});
 
-            IMapper mapper = mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
+            //IMapper mapper = mapperConfig.CreateMapper();
+            //services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
