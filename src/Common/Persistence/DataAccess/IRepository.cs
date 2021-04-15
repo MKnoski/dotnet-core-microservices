@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Persistence.DataAccess
 {
@@ -10,10 +8,10 @@ namespace Persistence.DataAccess
     {
         IUnitOfWork UnitOfWork { get; }
 
-        IQueryable<T> All<T>() where T : BaseEntity;
+        IQueryable<T> All<U>() where U : BaseEntity;
 
-        T Find<T>(Expression<Func<T, bool>> predicate) where T : BaseEntity;
+        T Find<U>(Expression<Func<U, bool>> predicate) where U : BaseEntity;
 
-        bool Contains<T>(Expression<Func<T, bool>> predicate) where T : BaseEntity;
+        bool Contains<U>(Expression<Func<U, bool>> predicate) where U : BaseEntity;
     }
 }
